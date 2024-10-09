@@ -1,3 +1,11 @@
+.header-image {
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Limit the maximum width */
+    margin: 20px auto; /* Center the image */
+    display: block; /* Center the image in the header */
+}
+
 /* Button styles */
 .button {
     display: inline-block;
