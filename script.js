@@ -15,3 +15,7 @@ function setProgress(barId, indicatorId, percentage) {
 setProgress('progressBar1', 'progressIndicator1', 40);  // 40% for Bar 1
 setProgress('progressBar2', 'progressIndicator2', 60);  // 60% for Bar 2
 setProgress('progressBar3', 'progressIndicator3', 80);  // 80% for Bar 3
+
+if (document.getElementById('progressIndicator4')) {
+    setProgress('progressBar4', 'progressIndicator4', 50);  // 50% for Bar 4 on the second page
+}
