@@ -13,6 +13,6 @@ function setProgress(percentage) {
 }
 
 // Example: Set progress to 50% (You can change this)
-setProgress('progressBar1', 'progressIndicator1', 40);  // 40% for Bar 1
+setProgress('progressBar1', 'progressIndicator1', 100);  // 40% for Bar 1
 setProgress('progressBar2', 'progressIndicator2', 60);  // 60% for Bar 2
 setProgress('progressBar3', 'progressIndicator3', 80);  // 80% for Bar 3
