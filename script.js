@@ -58,6 +58,7 @@ window.onload = function() {
 
     // Second page (progress2.html)
     if (document.getElementById('progressIndicator2')) {
-        animateProgress('progressBar2', 'progressIndicator2', 50); // Stop at 50% for Bar 4
+        animateProgress('progressBar4', 'progressIndicator2', 50); // Stop at 50% for Bar 4
     }
 };
+
