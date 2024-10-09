@@ -5,7 +5,7 @@
     margin: 10px; /* Margin around buttons */
     font-size: 16px; /* Font size */
     color: white; /* Text color */
-    background-color: #333; /* Button background color */
+    background-color: #FF0000; /* Button background color */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
@@ -14,7 +14,7 @@
 
 /* Hover effect */
 .button:hover {
-    background-color: #335; /* Darker shade on hover */
+    background-color: #8B0000; /* Darker shade on hover */
     transform: scale(1.05); /* Slightly grow the button */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
