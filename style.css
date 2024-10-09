@@ -1,4 +1,3 @@
-/* Same general styles as before */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -36,24 +35,23 @@ p {
 .progress-indicator {
     height: 100%;
     background-color: #4caf50;
-    width: 0%; /* Initially 0%, it will animate to the desired width */
+    width: 0%; /* Initially 0%, will be set via JavaScript */
 }
 
-/* Cool animation using keyframes */
+/* Keyframes: No need to animate all the way to 100%, we control the width */
 @keyframes fillAnimation {
     from {
-        width: 0%; /* Starts at 0% width */
+        width: 0%;
     }
     to {
-        width: 100%; /* Ends at full width (100%) */
+        width: var(--target-width); /* Use CSS variable for flexibility */
     }
 }
 
 .animated {
-    animation: fillAnimation 2s ease-out forwards; /* 2 seconds, easing, and stops at final width */
+    animation: fillAnimation 2s ease-out forwards; /* Control the width via JS */
 }
 
-/* Progress checkpoints for visual context */
 .progress-checkpoints {
     display: flex;
     justify-content: space-between;
