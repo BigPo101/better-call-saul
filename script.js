@@ -13,4 +13,4 @@ function setProgress(percentage) {
 }
 
 // Example: Set progress to 50% (You can change this)
-setProgress(10);
+setProgress(0);
