@@ -94,3 +94,19 @@ p {
     width: 25%;
     text-align: center;
 }
+/* Fullscreen video styles */
+#videoContainer {
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: 9999; /* Ensure it’s above other content */
+    overflow: hidden; /* Hide any overflow */
+}
+
+#introVideo {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Cover the whole area */
+}
