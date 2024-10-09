@@ -1,3 +1,30 @@
+/* Button styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for button */
+    margin: 10px; /* Margin around buttons */
+    font-size: 16px; /* Font size */
+    color: white; /* Text color */
+    background-color: #4caf50; /* Button background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: #45a049; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly grow the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Optional: Focus effect for accessibility */
+.button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.5); /* Custom focus outline */
+}
+
 /* Fullscreen video styles */
 #videoContainer {
     position: fixed; /* Fixed positioning */
