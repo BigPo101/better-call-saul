@@ -1,4 +1,4 @@
-/* General styles */
+/* Same general styles as before */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -20,7 +20,6 @@ p {
     color: #666;
 }
 
-/* Progress bar styles */
 .progress-container {
     width: 80%;
     margin: 30px auto;
@@ -35,12 +34,26 @@ p {
 }
 
 .progress-indicator {
-    width: 0%; /* Initially no progress */
     height: 100%;
     background-color: #4caf50;
-    transition: width 0.3s ease;
+    width: 0%; /* Initially 0%, it will animate to the desired width */
 }
 
+/* Cool animation using keyframes */
+@keyframes fillAnimation {
+    from {
+        width: 0%; /* Starts at 0% width */
+    }
+    to {
+        width: 100%; /* Ends at full width (100%) */
+    }
+}
+
+.animated {
+    animation: fillAnimation 2s ease-out forwards; /* 2 seconds, easing, and stops at final width */
+}
+
+/* Progress checkpoints for visual context */
 .progress-checkpoints {
     display: flex;
     justify-content: space-between;
@@ -51,18 +64,4 @@ p {
 .progress-checkpoints span {
     width: 25%;
     text-align: center;
-}
-
-nav {
-    margin: 20px 0;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #007BFF;
-}
-
-nav a:hover {
-    text-decoration: underline;
 }
