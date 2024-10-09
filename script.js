@@ -14,13 +14,14 @@ function fadeOutVideo() {
 }
 
 // Fade out when video ends
-introVideo.addEventListener('ended', fadeOutVideo);
+if (introVideo) {
+    introVideo.addEventListener('ended', fadeOutVideo);
+}
 
 // Fade out when video is clicked
-videoContainer.addEventListener('click', fadeOutVideo);
-
-// Optional: Additional functionality can be added here if needed
-
+if (videoContainer) {
+    videoContainer.addEventListener('click', fadeOutVideo);
+}
 
 // Function to animate progress for a specific bar and stop at the desired percentage
 function animateProgress(barId, indicatorId, percentage) {
@@ -56,9 +57,8 @@ window.onload = function() {
         animateProgress('progressBar1', 'progressIndicator1', 40); // Stop at 40% for Bar 1
     }
 
-    // Second page (progress2.html)
-    if (document.getElementById('progressIndicator2')) {
-        animateProgress('progressBar2', 'progressIndicator2', 50); // Stop at 50% for Bar 4
+    // Second page (season1.html)
+    if (document.getElementById('progressIndicatorSeason1')) { // Changed ID here
+        animateProgress('progressBar1', 'progressIndicatorSeason1', 50); // Stop at 50% for Season 1
     }
 };
-
