@@ -29,6 +29,7 @@ p {
     width: 80%;
     margin: 40px auto;
     position: relative;
+    text-align: left;
 }
 
 /* Progress bar styling */
@@ -38,42 +39,30 @@ p {
     background-color: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 /* Glowing and smooth progress effect */
 .progress-indicator {
     height: 100%;
-    background: linear-gradient(90deg, #f44336, #4caf50); /* Gradient from red to green */
+    background: linear-gradient(90deg, #4caf50, #81c784); /* Gradient for depth */
     width: 0%; /* Starts at 0% */
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3); /* Glow and inset shadow */
-    transition: width 2s ease-in-out, background 2s ease-in-out; /* Smooth transition with easing */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.7); /* Glow effect */
+    transition: width 2s ease-in-out; /* Smooth transition with easing */
     position: relative;
-}
-
-/* Floating percentage label */
-.progress-label {
-    position: absolute;
-    top: -25px; /* Position above the bar */
-    left: 0; /* Align to the left */
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-    transition: left 0.5s ease; /* Smooth movement */
-    opacity: 0; /* Start hidden */
 }
 
 /* Glowing and pulsing effect for the moving part */
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 20px rgba(76, 175, 80, 0.7), 0 0 30px rgba(76, 175, 80, 0.5);
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
     }
     50% {
-        box-shadow: 0 0 30px rgba(76, 175, 80, 1), 0 0 40px rgba(76, 175, 80, 0.7);
+        box-shadow: 0 0 20px rgba(76, 175, 80, 1), 0 0 30px rgba(76, 175, 80, 0.7);
     }
     100% {
-        box-shadow: 0 0 20px rgba(76, 175, 80, 0.7), 0 0 30px rgba(76, 175, 80, 0.5);
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
     }
 }
 
@@ -90,12 +79,6 @@ p {
     to {
         width: var(--target-width); /* Target width defined dynamically in JS */
     }
-}
-
-/* Ripple effect on click */
-.progress-bar:active {
-    overflow: hidden; /* Prevent overflow on click */
-    cursor: pointer; /* Change cursor on hover */
 }
 
 /* Progress checkpoints for context */
