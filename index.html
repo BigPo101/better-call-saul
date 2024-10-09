@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <!-- Fullscreen Video Section -->
+    <!-- Fullscreen Video Section -->
     <div id="videoContainer">
-        <video id="introVideo" autoplay muted>
+        <video id="introVideo" muted>
             <source src="Better Call Saul Intro.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -37,17 +37,27 @@
             <span>Season 8</span>
             <span>Season 9</span>
             <span>Season 10</span>
-            <span>Finish</span>span>
+            <span>Finish</span>
         </div>
     </div>
 
-<!-- Navigation Links -->
-<nav>
-    <a href="season1.html" class="button">Season 1</a>
-    <a href="contact.html" class="button">Contact</a>
-</nav>
-
+    <!-- Navigation Links -->
+    <nav>
+        <a href="season1.html">Season 1</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
     <script src="script.js"></script>
+    <script>
+        // Check if it's the first visit
+        if (!sessionStorage.getItem('videoPlayed')) {
+            const introVideo = document.getElementById('introVideo');
+            introVideo.play(); // Play the video
+            sessionStorage.setItem('videoPlayed', 'true'); // Set flag in session storage
+        } else {
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.style.display = 'none'; // Hide video if already played
+        }
+    </script>
 </body>
 </html>
