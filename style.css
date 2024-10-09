@@ -1,39 +1,96 @@
-// Function to animate progress for a specific bar and stop at the desired percentage
-function animateProgress(barId, indicatorId, percentage) {
-    const progressIndicator = document.getElementById(indicatorId);
-    
-    if (progressIndicator) {
-        // Reset width for restart animation
-        progressIndicator.style.width = '0%';
-        progressIndicator.classList.remove('animated');
-        
-        // Ensure the percentage is valid (between 0 and 100)
-        if (percentage >= 0 && percentage <= 100) {
-            // Dynamically set the target percentage width using a CSS variable
-            progressIndicator.style.setProperty('--target-width', percentage + '%');
-            
-            // Delay adding the animation class to allow a visual reset
-            setTimeout(() => {
-                progressIndicator.style.width = percentage + '%';  // Set the final width
-                progressIndicator.classList.add('animated');       // Add animation class for pulse + fill
-            }, 100); // 100ms delay before animation starts
-        } else {
-            console.error('Invalid percentage value. It must be between 0 and 100.');
-        }
-    } else {
-        console.warn(`Progress bar with id ${indicatorId} not found.`);
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f0f0f0; /* Light background */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-bottom: 4px solid #4caf50;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+p {
+    color: #ccc;
+    margin-top: 5px;
+}
+
+/* Progress bar container */
+.progress-container {
+    width: 80%;
+    margin: 40px auto;
+    position: relative;
+    text-align: left;
+}
+
+/* Progress bar styling */
+.progress-bar {
+    position: relative;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Glowing and smooth progress effect */
+.progress-indicator {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #81c784); /* Gradient for depth */
+    width: 0%; /* Starts at 0% */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.7); /* Glow effect */
+    transition: width 2s ease-in-out; /* Smooth transition with easing */
+    position: relative;
+}
+
+/* Glowing and pulsing effect for the moving part */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(76, 175, 80, 1), 0 0 30px rgba(76, 175, 80, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.7), 0 0 20px rgba(76, 175, 80, 0.5);
     }
 }
 
-// Animate the progress bars when the page is loaded
-window.onload = function() {
-    // First page (index.html)
-    if (document.getElementById('progressIndicator1')) {
-        animateProgress('progressBar1', 'progressIndicator1', 40); // Stop at 40% for Bar 1
-    }
+/* Animate the glowing and pulsing effect */
+.animated {
+    animation: fillAnimation 2s ease-in-out forwards, pulse 2s infinite ease-in-out; /* Pulse and fill */
+}
 
-    // Second page (progress2.html)
-    if (document.getElementById('progressIndicator2')) {
-        animateProgress('progressBar4', 'progressIndicator2', 50); // Stop at 50% for Bar 4
+/* Keyframes for the fill animation */
+@keyframes fillAnimation {
+    from {
+        width: 0%;
     }
-};
+    to {
+        width: var(--target-width); /* Target width defined dynamically in JS */
+    }
+}
+
+/* Progress checkpoints for context */
+.progress-checkpoints {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #333;
+}
+
+.progress-checkpoints span {
+    width: 25%;
+    text-align: center;
+}
