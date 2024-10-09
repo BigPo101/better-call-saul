@@ -1,3 +1,18 @@
+// Wait for the video to finish playing
+const introVideo = document.getElementById('introVideo');
+const videoContainer = document.getElementById('videoContainer');
+
+introVideo.addEventListener('ended', function() {
+    // Add a fade-out effect
+    videoContainer.style.transition = 'opacity 1s'; // Transition for fade effect
+    videoContainer.style.opacity = '0'; // Fade out
+
+    // After the fade-out is complete, hide the container
+    setTimeout(() => {
+        videoContainer.style.display = 'none'; // Hide the video container
+    }, 1000); // Match this with the duration of the fade-out transition
+});
+
 // Function to animate progress for a specific bar and stop at the desired percentage
 function animateProgress(barId, indicatorId, percentage) {
     const progressIndicator = document.getElementById(indicatorId);
