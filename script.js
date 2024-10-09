@@ -1,24 +1,31 @@
-// Function to set the progress for a specific bar
-function setProgress(barId, indicatorId, percentage) {
+// Function to animate progress for a specific bar
+function animateProgress(barId, indicatorId, percentage) {
     const progressIndicator = document.getElementById(indicatorId);
     
-    if (progressIndicator) {  // Check if the element exists on the current page
-        if (percentage >= 0 && percentage <= 100) {
+    if (progressIndicator) {
+        // Remove previous styles to reset the progress bar
+        progressIndicator.style.width = '0%';
+        progressIndicator.classList.remove('animated');
+        
+        // Allow a brief delay before adding the animation class (for visual reset effect)
+        setTimeout(() => {
             progressIndicator.style.width = percentage + '%';
-        } else {
-            console.error("Invalid percentage value. It must be between 0 and 100.");
-        }
+            progressIndicator.classList.add('animated'); // Apply the animation class
+        }, 100); // 100ms delay to allow the reset
     } else {
-        console.warn(`Progress bar with id ${indicatorId} not found on this page.`);
+        console.warn(`Progress bar with id ${indicatorId} not found.`);
     }
 }
 
-// Set progress for the first page's bars (index.html)
-if (document.getElementById('progressIndicator1')) {
-    setProgress('progressBar1', 'progressIndicator1', 40);  // 40% for Bar 1
-}
+// Example: Animate progress bars (set different percentages for each)
+window.onload = function() {
+    // First page
+    if (document.getElementById('progressIndicator1')) {
+        animateProgress('progressBar1', 'progressIndicator1', 40); // 40% for Bar 1
+    }
 
-// Set progress for the second page's bar (progress2.html)
-if (document.getElementById('progressIndicator2')) {
-    setProgress('progressBar4', 'progressIndicator2', 50);  // 50% for Bar 4 on the second page
-}
+    // Second page (progress2.html)
+    if (document.getElementById('progressIndicator2')) {
+        animateProgress('progressBar4', 'progressIndicator2', 50); // 50% for Bar 4
+    }
+};
