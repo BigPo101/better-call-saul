@@ -1,9 +1,9 @@
-// Wait for the video to finish playing
+// Wait for the video to finish playing or be clicked
 const introVideo = document.getElementById('introVideo');
 const videoContainer = document.getElementById('videoContainer');
 
-introVideo.addEventListener('ended', function() {
-    // Add a fade-out effect
+// Function to handle fade out
+function fadeOutVideo() {
     videoContainer.style.transition = 'opacity 1s'; // Transition for fade effect
     videoContainer.style.opacity = '0'; // Fade out
 
@@ -11,7 +11,16 @@ introVideo.addEventListener('ended', function() {
     setTimeout(() => {
         videoContainer.style.display = 'none'; // Hide the video container
     }, 1000); // Match this with the duration of the fade-out transition
-});
+}
+
+// Fade out when video ends
+introVideo.addEventListener('ended', fadeOutVideo);
+
+// Fade out when video is clicked
+videoContainer.addEventListener('click', fadeOutVideo);
+
+// Optional: Additional functionality can be added here if needed
+
 
 // Function to animate progress for a specific bar and stop at the desired percentage
 function animateProgress(barId, indicatorId, percentage) {
