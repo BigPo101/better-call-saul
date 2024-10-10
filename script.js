@@ -54,11 +54,11 @@ function animateProgress(barId, indicatorId, percentage) {
 window.onload = function() {
     // First page (index.html)
     if (document.getElementById('progressIndicator1')) {
-        animateProgress('progressBar1', 'progressIndicator1', 40); // Stop at 40% for Bar 1
+        animateProgress('progressBar1', 'progressIndicator1', 10); // Stop at 40% for Bar 1
     }
 
     // Second page (season1.html)
     if (document.getElementById('progressIndicatorSeason1')) { // Changed ID here
-        animateProgress('progressBar1', 'progressIndicatorSeason1', 50); // Stop at 50% for Season 1
+        animateProgress('progressBar1', 'progressIndicatorSeason1', 10); // Stop at 50% for Season 1
     }
 };
